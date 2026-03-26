@@ -21,6 +21,8 @@ class CloudMessaging {
     const TO_TYPE_MULTIPLE = "multiple";
     const TO_TYPE_TOPIC = "topic";
     
+    private $debug = false;
+    
     public function __construct() {
         $this->url = "https://fcm.googleapis.com/v1/projects/%s/messages:send";
     }
@@ -262,6 +264,14 @@ class CloudMessaging {
             );
 
             $post = json_encode($post);
+            
+            if($this->debug){
+                Helpers\Helper::dump([
+                    'Before Multiple Post',
+                    $header,
+                    $post,
+                ]);
+            }
 
             curl_setopt($multiCurl[$i], CURLOPT_URL, $url);
             curl_setopt($multiCurl[$i], CURLOPT_CUSTOMREQUEST, "POST");
@@ -315,6 +325,14 @@ class CloudMessaging {
         
         $post = json_encode($data);
         
+        if($this->debug){
+            Helpers\Helper::dump([
+                'Before Post',
+                $header,
+                $post,
+            ]);
+        }
+        
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
@@ -338,4 +356,14 @@ class CloudMessaging {
             "error" => Helpers\Helper::curlError($curlErrorCode)
         );
     }   
+    
+    public function enableDebug(){
+        $this->debug = true;
+        return $this;
+    }
+    
+    public function disbleDebug(){
+        $this->debug = false;
+        return $this;
+    }
 }

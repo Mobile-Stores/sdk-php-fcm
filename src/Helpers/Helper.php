@@ -4,6 +4,10 @@ namespace Firebase\Helpers;
 
 class Helper {
     
+    public static function dump($data){
+        var_dump($data);
+    }
+    
     public static function curlError($curlErrorCode){
         $erroList = [
             0 => 'NO_ERROR',

@@ -1,6 +1,11 @@
 # Biblioteca Api Firebase Cloud Messaging
 Biblioteca PHP v7.2 para manipulação da API do FCM
 
+# Instalar
+```console
+composer require mobilestores/sdk-php-fcm
+```
+
 # Como utilizar
 
 ```php
