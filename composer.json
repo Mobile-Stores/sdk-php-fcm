@@ -1,0 +1,29 @@
+{
+    "name": "mobilestores/sdk-php-fcm",
+    "description": "SDK PHP Firebase Cloud Messaging",
+    "keywords": ["api", "library", "psr-3", "fcm"],
+    "homepage": "https://github.com/Mobile-Stores/sdk-php-fcm",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Weslley Ceresa",
+            "email": "contato@mobilestores.app",
+            "homepage": "https://www.mobilestores.app"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "google/apiclient": "^2.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Firebase\\": "src/"
+        }
+    },
+    "scripts": {
+        "test": []
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
