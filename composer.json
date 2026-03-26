@@ -1,7 +1,7 @@
 {
     "name": "mobilestores/sdk-php-fcm",
     "description": "SDK PHP Firebase Cloud Messaging",
-    "keywords": ["api", "library", "psr-3", "fcm"],
+    "keywords": ["api", "library", "psr-4", "fcm"],
     "homepage": "https://github.com/Mobile-Stores/sdk-php-fcm",
     "type": "library",
     "license": "MIT",
