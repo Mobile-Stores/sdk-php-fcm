@@ -16,6 +16,8 @@ class CloudMessaging {
     private $title;
     private $body;
     private $ttl;
+    private $payload;
+    private $options;
     
     const TO_TYPE_CONDITION = "condition";
     const TO_TYPE_MULTIPLE = "multiple";
@@ -94,6 +96,11 @@ class CloudMessaging {
             $data["message"]["apns"]["payload"] = array_merge($data["message"]["apns"]["payload"], $this->payload);
         }
         
+        if($this->options){            
+            $data["message"]["android"]["fcm_options"] = $this->options;
+            $data["message"]["apns"]["fcm_options"] = $this->options;
+        }
+        
         switch ($this->toType){
             case self::TO_TYPE_TOPIC:
                 $data["message"]["topic"] = $this->to;                
@@ -127,6 +134,11 @@ class CloudMessaging {
     
     public function payload(array $payload){
         $this->payload = $payload;
+        return $this;
+    }
+    
+    public function options(array $options){
+        $this->options = $options;
         return $this;
     }
     
