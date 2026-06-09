@@ -225,6 +225,11 @@ class CloudMessaging {
         $data["message"]["android"]["data"] = array_merge($data["message"]["android"]["data"], $payload);
         $data["message"]["apns"]["payload"] = array_merge($data["message"]["apns"]["payload"], $payload);
         
+        if($this->options){            
+            $data["message"]["android"]["fcm_options"] = $this->options;
+            $data["message"]["apns"]["fcm_options"] = $this->options;
+        }
+        
         if(is_string($topic)){
             $data["message"]["topic"] = $topic;
             return $this->post($data);
